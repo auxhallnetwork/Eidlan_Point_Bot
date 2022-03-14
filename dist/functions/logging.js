@@ -85,11 +85,11 @@ exports.logTransfer = logTransfer;
 // Log the transfer in the main guild
 async function logTransferMain(message, points, client) {
     const mainGuild = (0, main_guild_1.getMainGuild)(client);
-    const mainLogChannel = (0, channels_1.getChannelByType)(mainGuild, "log-normal");
-    if (!mainLogChannel) {
-        console.warn("Could not find the log channel in the main guild");
-        return;
-    }
+    // const mainLogChannel = getChannelByType(mainGuild, "log-normal")
+    // if (!mainLogChannel) {
+    //   console.warn("Could not find the log channel in the main guild")
+    //   return
+    // }
     const { transferMain, transferNonMain } = generateLogMessages(message, points);
     try {
         //await mainLogChannel.send(transferMain)

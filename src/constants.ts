@@ -8,7 +8,7 @@ export const POINTS_CHECKING_CHANNELS = [
 // All guilds
 // In the main guild: logs everything from all guilds
 // In non-main guilds: logs sends made inside that guild
-export const NORMAL_LOG_CHANNEL = "points-log"
+export const NORMAL_LOG_CHANNEL = "normal-point-logs"
 
 // Main guild only
 // Only logs grants from all guilds
@@ -24,4 +24,4 @@ export const PRIVATE_GRANT_POINT_CHANNEL = "admin-grants"
 
 //achievement- log channel
 
-export const ACHIEVEMENT_LOG = "achievement-logs"
+export const ACHIEVEMENT_LOG = "community-achievements"

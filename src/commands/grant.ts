@@ -106,8 +106,8 @@ export default class GrantCommand extends Command {
       targets.map(async (user) => {
         
         await grantPoints(client.user, user, args.points, pool)
-        await updateBalance(client.user.id,-args.points,pool)
-        await updateBalance(user.id,args.points,pool)
+        await updateBalance(client.user.id,user.username,-args.points,pool)
+        await updateBalance(user.id,user.username,args.points,pool)
         const points = await getCurrentBalance(user.id, pool)
         await setRoles(user.id, message.guild, points,pool,this.client,)
       })

@@ -140,11 +140,11 @@ async function logTransferMain(
 
 ) {
   const mainGuild = getMainGuild(client)
-  const mainLogChannel = getChannelByType(mainGuild, "log-normal")
-  if (!mainLogChannel) {
-    console.warn("Could not find the log channel in the main guild")
-    return
-  }
+  // const mainLogChannel = getChannelByType(mainGuild, "log-normal")
+  // if (!mainLogChannel) {
+  //   console.warn("Could not find the log channel in the main guild")
+  //   return
+  // }
 
   const { transferMain, transferNonMain } =  generateLogMessages(message, points)
 

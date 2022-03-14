@@ -6,7 +6,7 @@ export async function getRoles(point: Number, pool: Pool) {
       
     )
 
-    console.log(rows[0].min+" min")
+    
     
     return rows;
 }

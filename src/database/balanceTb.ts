@@ -1,13 +1,13 @@
 import { Pool } from "mysql2/promise"
 
-export async  function updateBalance(userID: string, point: number, pool: Pool) {
+export async  function updateBalance(userID: string,username: string, point: number, pool: Pool) {
   
   
   var current_point_balance = await getDbCurrentBalance(userID,pool)
   if(current_point_balance[0]===undefined){
     pool.execute(
-      "INSERT INTO balance (UserId, current_points) VALUES(?, ?)",
-      [userID,point]
+      "INSERT INTO balance (UserId, current_points,username) VALUES(?, ?, ?)",
+      [userID,point,username]
     )
   }
    else{

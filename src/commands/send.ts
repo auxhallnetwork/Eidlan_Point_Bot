@@ -41,8 +41,9 @@ export default class SendCommand extends Command {
     // Need at least one user and some points
 
     const checkingChannel = getChannelByType(message.guild, "private-grant")
+    console.log("kahini"+ getChannelType(message.channel))
     try {
-      if ( getChannelType(message.channel) == "private-grant") {
+      if ( getChannelType(message.channel) === "private-grant") {
         const errorMessage = 
           `Your \`!send\` post was removed from <#${message.channel.id}>. Please only post \`!send\` in any public channel. Thank you.`
           
@@ -92,8 +93,8 @@ export default class SendCommand extends Command {
     await Promise.all(
       targets.map(async (user) => {
         await sendPoints(message.author, user, args.points, pool)
-        await updateBalance(message.author.id,-args.points,pool)
-        await updateBalance(user.id,args.points,pool)
+        await updateBalance(message.author.id,message.author.username,-args.points,pool)
+        await updateBalance(user.id,user.username,args.points,pool)
         // Set role of each user
         const points = await getCurrentBalance(user.id, pool)
         await setRoles(user.id, message.guild, points,pool,this.client)

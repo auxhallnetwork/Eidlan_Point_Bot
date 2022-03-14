@@ -1,12 +1,13 @@
 {
-  "name": "discordbot",
+  "name": "eidlan-point-bot",
   "version": "1.0.0",
   "description": "Discord Bot",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "start": "node -r dotenv/config dist/index.js",
-    "test": "nyc --reporter=text --reporter=lcov ts-mocha -r dotenv/config src/**/*.test.ts src/**/**/*.test.ts"
+    "test": "nyc --reporter=text --reporter=lcov ts-mocha -r dotenv/config src/**/*.test.ts src/**/**/*.test.ts",
+    "deploy": "serverless deploy"
   },
   "author": "Eco",
   "license": "MIT",
@@ -15,7 +16,8 @@
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "serverless-http": "^2.7.0"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",

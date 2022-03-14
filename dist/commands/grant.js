@@ -75,8 +75,8 @@ class GrantCommand extends discord_akairo_1.Command {
         }
         await Promise.all(targets.map(async (user) => {
             await (0, points_1.grantPoints)(client.user, user, args.points, pool);
-            await (0, balanceTb_1.updateBalance)(client.user.id, -args.points, pool);
-            await (0, balanceTb_1.updateBalance)(user.id, args.points, pool);
+            await (0, balanceTb_1.updateBalance)(client.user.id, user.username, -args.points, pool);
+            await (0, balanceTb_1.updateBalance)(user.id, user.username, args.points, pool);
             const points = await (0, getPoints_1.getCurrentBalance)(user.id, pool);
             await (0, set_roles_1.setRoles)(user.id, message.guild, points, pool, this.client);
         }));

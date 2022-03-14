@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDbCurrentBalance = exports.updateBalance = void 0;
-async function updateBalance(userID, point, pool) {
+async function updateBalance(userID, username, point, pool) {
     var current_point_balance = await getDbCurrentBalance(userID, pool);
     if (current_point_balance[0] === undefined) {
-        pool.execute("INSERT INTO balance (UserId, current_points) VALUES(?, ?)", [userID, point]);
+        pool.execute("INSERT INTO balance (UserId, current_points,username) VALUES(?, ?, ?)", [userID, point, username]);
     }
     else {
         point += Number(current_point_balance[0].cp);

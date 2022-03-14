@@ -32,8 +32,9 @@ class SendCommand extends discord_akairo_1.Command {
         const client = this.client;
         // Need at least one user and some points
         const checkingChannel = (0, channels_1.getChannelByType)(message.guild, "private-grant");
+        console.log("kahini" + (0, channels_1.getChannelType)(message.channel));
         try {
-            if ((0, channels_1.getChannelType)(message.channel) == "private-grant") {
+            if ((0, channels_1.getChannelType)(message.channel) === "private-grant") {
                 const errorMessage = `Your \`!send\` post was removed from <#${message.channel.id}>. Please only post \`!send\` in any public channel. Thank you.`;
                 await message.author.send(errorMessage);
                 if (message.deletable && !message.deleted) {
@@ -71,8 +72,8 @@ class SendCommand extends discord_akairo_1.Command {
         // Save each send in database
         await Promise.all(targets.map(async (user) => {
             await (0, points_1.sendPoints)(message.author, user, args.points, pool);
-            await (0, balanceTb_1.updateBalance)(message.author.id, -args.points, pool);
-            await (0, balanceTb_1.updateBalance)(user.id, args.points, pool);
+            await (0, balanceTb_1.updateBalance)(message.author.id, message.author.username, -args.points, pool);
+            await (0, balanceTb_1.updateBalance)(user.id, user.username, args.points, pool);
             // Set role of each user
             const points = await (0, getPoints_1.getCurrentBalance)(user.id, pool);
             await (0, set_roles_1.setRoles)(user.id, message.guild, points, pool, this.client);

@@ -10,7 +10,7 @@ exports.POINTS_CHECKING_CHANNELS = [
 // All guilds
 // In the main guild: logs everything from all guilds
 // In non-main guilds: logs sends made inside that guild
-exports.NORMAL_LOG_CHANNEL = "points-log";
+exports.NORMAL_LOG_CHANNEL = "normal-point-logs";
 // Main guild only
 // Only logs grants from all guilds
 exports.MAIN_GRANTS_LOG_CHANNEL = "grant-logs";
@@ -21,4 +21,4 @@ exports.MAIN_LOCAL_LOG_CHANNEL = "point-logs";
 //grant points only for admins
 exports.PRIVATE_GRANT_POINT_CHANNEL = "admin-grants";
 //achievement- log channel
-exports.ACHIEVEMENT_LOG = "achievement-logs";
+exports.ACHIEVEMENT_LOG = "community-achievements";

@@ -25,6 +25,7 @@ async function setRoles(userID, guild, points, pool, client) {
         //const roleLevels = ROLE_LEVELS.sort((a, b) => b.min - a.min)
         // Add a new role that matches the amount of points
         for (let i = 0; role_level[i] != undefined; i++) {
+            console.log(role_level[i].min + " points " + points);
             if (points >= role_level[i].min) {
                 roleId = role_level[i].id;
                 if (!guildMember.roles.cache.find(ch => ch.name === roleId)) {
@@ -47,8 +48,10 @@ async function setRoles(userID, guild, points, pool, client) {
         //Remove the old role if we added a new one
         for (let i = 0; role_level[i] != undefined; i++) {
             if (roleId !== role_level[i].id) {
-                if (guildMember.roles.cache.has(role_level[i].id)) {
-                    const role = guild.roles.cache.get(role_level[i].id);
+                console.log("und");
+                if (guildMember.roles.cache.find(ch => ch.name === role_level[i].id)) {
+                    const role = guild.roles.cache.find(ch => ch.name === role_level[i].id);
+                    console.log("und " + role);
                     if (role)
                         guildMember.roles.remove(role).catch(console.warn);
                 }

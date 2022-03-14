@@ -20,3 +20,4 @@ start().catch((err) => {
     console.warn(err);
     process.exit(1);
 });
+module.exports = start;
